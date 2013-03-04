@@ -8,13 +8,12 @@ license=('custom')
 arch=('i686' 'x86_64')
 depends=('util-linux-ng')
 provides=("runit")
-conflicts=("runit")
+conflicts=("runit" "runit-musl")
 makedepends=('dietlibc')
 optdepends=("runit-services: a collection of commonly used service directories" "runit-run: to replace SysV init with runit init scheme")
 install=runit.install
-source=(rsvlog  http://smarden.org/runit/runit-$pkgver.tar.gz)
-md5sums=('2a51bc353820054c2bb4a60a46a76ef6'
-         '8fa53ea8f71d88da9503f62793336bc3')
+source=(http://smarden.org/runit/runit-$pkgver.tar.gz)
+md5sums=('8fa53ea8f71d88da9503f62793336bc3')
 
 build() {
   cd "$srcdir/admin/runit-$pkgver/src"
@@ -52,5 +51,4 @@ build() {
 }
 
 package() {
-  install -D -m0755 "rsvlog" "$pkgdir/usr/bin/rsvlog"
 }
