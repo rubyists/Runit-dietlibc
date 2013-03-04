@@ -29,9 +29,7 @@ build() {
   make || return 1
   make check || return 1
 
-  install -d "$pkgdir/etc/runit/runsvdir/runit-default"
   install -d "$pkgdir/var"
-  ln -s ../etc/runit/runsvdir/current "${pkgdir}/var/service" || return 1
 
   # install binaries
   install -d -m0755 "${pkgdir}/sbin" || return 1
